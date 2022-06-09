@@ -8,8 +8,7 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-const MONGO_URL =
-  "mongodb+srv://haneen:07973923@cluster0.p1flg.mongodb.net/items?retryWrites=true&w=majority";
+const MONGO_URL = process.env.MONGO_URL;
 
 // mongodb://haneen:<password>@cluster0-shard-00-00.p1flg.mongodb.net:27017,cluster0-shard-00-01.p1flg.mongodb.net:27017,cluster0-shard-00-02.p1flg.mongodb.net:27017/?ssl=true&replicaSet=atlas-dbb0ir-shard-0&authSource=admin&retryWrites=true&w=majority
 mongoose.connect(`${MONGO_URL}`, {
