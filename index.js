@@ -1,17 +1,17 @@
 const express = require("express");
 const app = express();
-const PORT = 8000;
 const mongoose = require("mongoose");
 require("dotenv").config();
 const cors = require("cors");
 
 app.use(cors());
 app.use(express.json());
+const PORT = process.env.PORT;
 
-const MONGO_URL = process.env.MONGO_URL;
+const MONGO_URI = process.env.MONGO_URL;
 
 // mongodb://haneen:<password>@cluster0-shard-00-00.p1flg.mongodb.net:27017,cluster0-shard-00-01.p1flg.mongodb.net:27017,cluster0-shard-00-02.p1flg.mongodb.net:27017/?ssl=true&replicaSet=atlas-dbb0ir-shard-0&authSource=admin&retryWrites=true&w=majority
-mongoose.connect(`${MONGO_URL}`, {
+mongoose.connect(`${MONGO_URI}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
